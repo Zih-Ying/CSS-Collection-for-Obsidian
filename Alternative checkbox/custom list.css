@@ -1,0 +1,186 @@
+:root {
+  --connect-1: #EB380F; /* red     */
+  --connect-2: #E98C1C; /* orange  */
+  --connect-3: #F1D40E; /* yellow  */
+  --connect-4: #00D467; /* green   */
+  --connect-5: #0096D4; /* blue    */
+  --connect-6: #6B00D2; /* purple  */
+
+  --connect-7: #d45fb5; /* violet  */
+  --connect-8: #91ffff; /* cyan    */
+  --connect-9: #ffffff; /* white   */
+  --highlight-tint: 16%;
+}
+
+/* remove style of checked mark (will have a rectengle) */
+input[data-task="1"]:checked,
+input[data-task="2"]:checked,
+input[data-task="3"]:checked,
+input[data-task="4"]:checked,
+input[data-task="5"]:checked,
+input[data-task="6"]:checked,
+input[data-task="7"]:checked,
+input[data-task="8"]:checked,
+input[data-task="9"]:checked,
+li[data-task="1"] > input:checked,
+li[data-task="2"] > input:checked,
+li[data-task="3"] > input:checked,
+li[data-task="4"] > input:checked,
+li[data-task="5"] > input:checked,
+li[data-task="6"] > input:checked,
+li[data-task="7"] > input:checked,
+li[data-task="8"] > input:checked,
+li[data-task="9"] > input:checked,
+/* add "p" for more then one adjacent list */
+li[data-task="1"] > p > input:checked,
+li[data-task="2"] > p > input:checked,
+li[data-task="3"] > p > input:checked,
+li[data-task="4"] > p > input:checked,
+li[data-task="5"] > p > input:checked,
+li[data-task="6"] > p > input:checked,
+li[data-task="7"] > p > input:checked,
+li[data-task="8"] > p > input:checked,
+li[data-task="9"] > p > input:checked {
+  --checkbox-marker-color: transparent;
+  border: none;
+  border-radius: 0;
+  background-image: none;
+  background-color: currentColor;
+  -webkit-mask-size: var(--checkbox-icon);
+  -webkit-mask-position: 50% 50%;
+}
+
+/* remove checkbox */
+li[data-task="1"] > input[type=checkbox],
+li[data-task="2"] > input[type=checkbox],
+li[data-task="3"] > input[type=checkbox],
+li[data-task="4"] > input[type=checkbox],
+li[data-task="5"] > input[type=checkbox],
+li[data-task="6"] > input[type=checkbox],
+li[data-task="7"] > input[type=checkbox],
+li[data-task="8"] > input[type=checkbox],
+li[data-task="9"] > input[type=checkbox],
+li[data-task="R"] > input[type=checkbox],
+li[data-task="O"] > input[type=checkbox],
+li[data-task="Y"] > input[type=checkbox],
+li[data-task="G"] > input[type=checkbox],
+li[data-task="B"] > input[type=checkbox],
+li[data-task="P"] > input[type=checkbox],
+li[data-task="V"] > input[type=checkbox],
+li[data-task="C"] > input[type=checkbox],
+li[data-task="W"] > input[type=checkbox],
+li[data-task="1"] > p > input[type=checkbox],
+li[data-task="2"] > p > input[type=checkbox],
+li[data-task="3"] > p > input[type=checkbox],
+li[data-task="4"] > p > input[type=checkbox],
+li[data-task="5"] > p > input[type=checkbox],
+li[data-task="6"] > p > input[type=checkbox],
+li[data-task="7"] > p > input[type=checkbox],
+li[data-task="8"] > p > input[type=checkbox],
+li[data-task="9"] > p > input[type=checkbox],
+li[data-task="R"] > p > input[type=checkbox],
+li[data-task="O"] > p > input[type=checkbox],
+li[data-task="Y"] > p > input[type=checkbox],
+li[data-task="G"] > p > input[type=checkbox],
+li[data-task="B"] > p > input[type=checkbox],
+li[data-task="P"] > p > input[type=checkbox],
+li[data-task="V"] > p > input[type=checkbox],
+li[data-task="C"] > p > input[type=checkbox],
+li[data-task="W"] > p > input[type=checkbox] {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/* add margin to prevent line overlap, to all for consistent */
+li {
+  margin-bottom: 5px;
+}
+
+/**** | list ****/
+/* add border left */
+.markdown-preview-view li[data-task="1"],
+.markdown-preview-view li[data-task="2"],
+.markdown-preview-view li[data-task="3"],
+.markdown-preview-view li[data-task="4"],
+.markdown-preview-view li[data-task="5"],
+.markdown-preview-view li[data-task="6"],
+.markdown-preview-view li[data-task="7"],
+.markdown-preview-view li[data-task="8"],
+.markdown-preview-view li[data-task="9"] {
+  padding-left: 15px;
+  transform: translateX(-20px);
+  position: relative;
+  border-left: 5px solid;
+}
+
+/* change color */
+.markdown-preview-view li[data-task="1"] {
+  border-color: var(--connect-1);
+}
+.markdown-preview-view li[data-task="2"] {
+  border-color: var(--connect-2);
+}
+.markdown-preview-view li[data-task="3"] {
+  border-color: var(--connect-3);
+}
+.markdown-preview-view li[data-task="4"] {
+  border-color: var(--connect-4);
+}
+.markdown-preview-view li[data-task="5"] {
+  border-color: var(--connect-5);
+}
+.markdown-preview-view li[data-task="6"] {
+  border-color: var(--connect-6);
+}
+.markdown-preview-view li[data-task="7"] {
+  border-color: var(--connect-7);
+}
+.markdown-preview-view li[data-task="8"] {
+  border-color: var(--connect-8);
+}
+.markdown-preview-view li[data-task="9"] {
+  border-color: var(--connect-9);
+}
+
+/**** ==list== ****/
+.markdown-preview-view li[data-task="R"],
+.markdown-preview-view li[data-task="O"],
+.markdown-preview-view li[data-task="Y"],
+.markdown-preview-view li[data-task="G"],
+.markdown-preview-view li[data-task="B"],
+.markdown-preview-view li[data-task="P"],
+.markdown-preview-view li[data-task="V"],
+.markdown-preview-view li[data-task="C"],
+.markdown-preview-view li[data-task="W"] {
+  padding-left: 30px;
+  transform: translateX(-30px);
+  border-radius: 5px;
+}
+.markdown-preview-view li[data-task="R"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-1) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="O"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-2) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="Y"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-3) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="G"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-4) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="B"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-5) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="P"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-6) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="V"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-7) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="C"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-8) var(--highlight-tint), transparent), transparent);
+}
+.markdown-preview-view li[data-task="W"] {
+  background: linear-gradient(to right, color-mix(in srgb, var(--connect-9) var(--highlight-tint), transparent), transparent);
+}
