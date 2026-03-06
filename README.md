@@ -12,4 +12,4 @@
 ![Alternative checkbox showcase](Alternative_checkbox/alternative_checkbox_showcase.png)
 
 ## Callout
-![custom callout showcase](custom_callout_showcase.png)
+![custom callout showcase](Callout/custom_callout_showcase.png)
