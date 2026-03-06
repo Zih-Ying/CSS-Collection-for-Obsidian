@@ -1,0 +1,142 @@
+/* @settings
+name: My Style Settings - Banner
+id: my-style-banner
+collapsed: true
+settings:
+    - 
+        id: my-info-text
+        title: Usage
+        description: "
+        - add **banner** at cssClass and add '|banner' after embeded image
+        
+        - allow changing position by adding **banner-top/bottom**
+        
+        - add **banner-left** or **banner-right** cssClass for vertical side banners
+        type: info-text
+        markdown: true
+    - 
+        id: banner-h
+        title: Banner Height (horizontal)
+        type: variable-number
+        default: 300
+        format: px
+    - 
+        id: banner-w
+        title: Banner Width (vertical/side)
+        type: variable-number
+        default: 5000
+        format: px
+*/
+body {
+    --banner-h: 300px;
+    --banner-w: 500px;
+}
+
+/* view-content 的層級在 cssClass 外 */
+.view-content {
+    z-index: 0;
+}
+
+/* ─────────────────────────────────────────
+   BANNER General setting
+   embed: ![[image.jpg|banner]
+───────────────────────────────────────── */
+/* Hide the div container that wraps the banner */
+.banner div:has(> p > span[alt$="banner"]),
+.banner-left div:has(> p > span[alt$="banner"]),
+.banner-right div:has(> p > span[alt$="banner"]) {
+    height: 0;
+    overflow: hidden; /*auto, overlay*/
+    margin-top: -1em;
+}
+
+.banner span[alt$="banner"] img,
+.banner div[alt$="banner"] img,
+.banner-left span[alt$="banner"] img,
+.banner-left div[alt$="banner"] img,
+.banner-right span[alt$="banner"] img,
+.banner-right div[alt$="banner"] img {
+    object-fit: cover;
+    object-position: center;
+    margin: 0px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* ─────────────────────────────────────────
+   HORIZONTAL BANNER (top)
+   cssClass: banner
+───────────────────────────────────────── */
+.banner span[alt$="banner"] img,
+.banner div[alt$="banner"] img {
+    height: var(--banner-h);
+    width: 100%;
+    mask-image: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 25%,
+    rgba(0, 0, 0, 0.2) 60%,
+    rgba(0, 0, 0, 0) 100%);
+}
+.banner-top span[alt$="banner"] img, .banner-top div[alt$="banner"] img { object-position: top; }
+.banner-bottom span[alt$="banner"] img, .banner-bottom div[alt$="banner"] img { object-position: bottom; }
+
+/* ─────────────────────────────────────────
+   VERTICAL / SIDE BANNER — LEFT
+   cssClass: banner-left
+───────────────────────────────────────── */
+.banner-left span[alt$="banner"] img,
+.banner-left div[alt$="banner"] img {
+    height: 100%;
+    width: var(--banner-w);
+    mask-image: linear-gradient(to right,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.5) 35%,
+        rgba(0,0,0,0.2) 65%,
+        rgba(0,0,0,0) 100%);
+}
+
+/* ─────────────────────────────────────────
+   VERTICAL / SIDE BANNER — RIGHT
+   cssClass: banner-right
+───────────────────────────────────────── */
+.banner-right span[alt$="banner"] img,
+.banner-right div[alt$="banner"] img {
+    right: 0;
+    left: auto;
+    height: 100%;
+    width: var(--banner-w);
+    mask-image: linear-gradient(to left,
+        rgba(0,0,0,1) 0%,
+        rgba(0,0,0,0.5) 35%,
+        rgba(0,0,0,0.2) 65%,
+        rgba(0,0,0,0) 100%);
+}
+
+
+/* ─────────────────────────────────────────
+   SHARED CALLOUT ADJUSTMENTS
+───────────────────────────────────────── */
+.banner .callout-title,
+.banner-left .callout-title,
+.banner-right .callout-title {
+  background-color: transparent !important;
+  font-variant-caps: small-caps !important;
+  letter-spacing: 0.1em !important;
+  margin-top: unset !important;
+  padding: 1em !important;
+}
+
+.banner .callout-content,
+.banner-left .callout-content,
+.banner-right .callout-content {
+  margin: -1em 0 -.5em 0;
+  margin-left: 1em;
+}
+
+.banner code,
+.banner-left code,
+.banner-right code {
+    background-color: transparent !important;
+}
