@@ -1,0 +1,15 @@
+.callout[data-callout="history"],
+.callout[data-callout="record"] {
+    --callout-color: 250, 214, 137;
+    --callout-icon: lucide-file-clock;
+}
+
+.callout[data-callout="yt"] {
+    --callout-color: 215, 84, 85;
+    --callout-icon: lucide-youtube;
+}
+
+.callout[data-callout="doc"] {
+    --callout-color: 88, 178, 220;
+    --callout-icon: lucide-file-text;
+}

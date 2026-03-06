@@ -1,0 +1,67 @@
+.callout[data-callout=grid] {
+  background: none;
+  border: none;
+  padding: 0;
+  --n-col: var(--grid-callout-default-columns);
+}
+.callout[data-callout=grid] > .callout-title {
+  display: none;
+}
+.callout[data-callout=grid] > .callout-content {
+  border: none;
+  display: grid;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 0;
+  grid-template-columns: repeat(var(--n-col), 1fr);
+}
+
+body {
+  --blockquote-color: hsl(0, 0%, 80%); /*default set as hsl(0, calc(0%-20%), calc(15%+45%))*/
+}
+
+/*remove vertical line*/
+.markdown-rendered blockquote {
+  border-inline-start: unset;
+}
+
+/* Custom column-based layouts */
+.callout[data-callout=grid] > .callout-content.callout-content > * {
+  margin: 0;
+}
+.callout[data-callout=grid][data-callout-metadata~=col-2] > .callout-content {
+  --n-col: 2;
+}
+.callout[data-callout=grid][data-callout-metadata~=col-3] > .callout-content {
+  --n-col: 3;
+}
+.callout[data-callout=grid][data-callout-metadata~=col-4] > .callout-content {
+  --n-col: 4;
+}
+
+/* Custom percentage-based layouts */
+.callout[data-callout=grid][data-callout-metadata~="25%"] > .callout-content {
+  grid-template-columns: 25% 1fr;
+}
+.callout[data-callout=grid][data-callout-metadata~="33%"] > .callout-content {
+  grid-template-columns: 33% 1fr;
+}
+.callout[data-callout=grid][data-callout-metadata~="75%"] > .callout-content {
+  grid-template-columns: 75% 1fr;
+}
+
+@container markdown-view (0px < width < 250px) {
+  .callout[data-callout=grid][data-callout-metadata~=col-2] > .callout-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .callout[data-callout=grid][data-callout-metadata~=col-3] > .callout-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .callout[data-callout=grid][data-callout-metadata~=col-4] > .callout-content {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  /* Also make percentage layouts stack on small screens */
+  .callout[data-callout=grid][data-callout-metadata*="%"] > .callout-content {
+    grid-template-columns: 1fr;
+  }
+}
